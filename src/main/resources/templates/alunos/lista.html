@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alunos cadastrados</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+</head>
+<body>
+<main class="container">
+    <header class="cabecalho">
+        <div>
+            <h1>Cadastro de alunos</h1>
+            <p>Projeto Spring Boot + Thymeleaf + JDBC</p>
+        </div>
+        <a class="botao primario" th:href="@{/alunos/novo}">+ Novo aluno</a>
+    </header>
+
+    <div class="alerta sucesso" th:if="${sucesso}" th:text="${sucesso}"></div>
+    <div class="alerta erro" th:if="${erro}" th:text="${erro}"></div>
+
+    <section class="cartao">
+        <div class="vazio" th:if="${#lists.isEmpty(alunos)}">
+            Nenhum aluno encontrado. Clique em “Novo aluno” para cadastrar.
+        </div>
+        <div class="tabela-responsiva" th:unless="${#lists.isEmpty(alunos)}">
+            <table>
+                <thead>
+                <tr>
+                    <th>RM</th>
+                    <th>Nome</th>
+                    <th>Turma</th>
+                    <th>Nota</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <td th:text="${aluno.rm}"></td>
+                    <td th:text="${aluno.nome}"></td>
+                    <td th:text="${aluno.turma}"></td>
+                    <td th:text="${#numbers.formatDecimal(aluno.nota, 1, 2)}"></td>
+                    <td class="acoes">
+                        <a class="botao pequeno secundario"
+                           th:href="@{/alunos/editar/{rm}(rm=${aluno.rm})}">Editar</a>
+                        <form th:action="@{/alunos/excluir/{rm}(rm=${aluno.rm})}" method="post"
+                              onsubmit="return confirm('Deseja realmente excluir este aluno?');">
+                            <button class="botao pequeno perigo" type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer>Braufagelio Corporation</footer>
+</main>
+</body>
+</html>

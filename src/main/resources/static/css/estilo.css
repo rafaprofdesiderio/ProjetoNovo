@@ -1,0 +1,85 @@
+/* CSS simples para as páginas Thymeleaf */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    color: #222;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cabecalho {
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+p, footer, small {
+    color: #666;
+}
+
+.cartao {
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 7px 10px;
+    border: 1px solid #999;
+    background: #eee;
+    color: #222;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.primario { background: #ddd; }
+.secundario { background: #f5f5f5; }
+.perigo { background: #f8dddd; color: #800; }
+.pequeno { padding: 4px 7px; font-size: 13px; }
+
+.alerta {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+.sucesso { background: #e7f5e7; }
+.erro { background: #fbeaea; color: #800; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #eee;
+}
+.acoes form { display: inline; }
+.formulario { max-width: 500px; }
+
+.campo { margin-bottom: 12px; }
+.campo label {
+    display: block;
+    margin-bottom: 4px;
+}
+.campo input {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+}
+
+.botoes-form { margin-top: 15px; }
+.vazio { padding: 15px; }
+footer { margin-top: 20px; font-size: 12px; }
